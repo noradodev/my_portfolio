@@ -7,10 +7,12 @@ import styles from "../components/modules/card.module.css";
 import ToolboxImage from "../public/icons/Toolbox.png";
 import WebsiteImage from "../public/icons/Web.png";
 import EmailIcon from "../public/icons/New Message.png";
+import GreenTechIcon from "../public/icons/Greentech.svg";
 import PhoneIcon from "../public/icons/Rotary Dial Telephone.png";
 import ReactIcon from "../public/icons/Share.svg";
 import ConnectIcon from "../public/icons/Connect.svg";
 import NotePadIcon from "../public/icons/Notepad.svg";
+import ProjectIcon from "../public/icons/Folder.svg";
 import Pic1 from "../public/assets/1.png";
 import Pic2 from "../public/assets/2.png";
 import Pic3 from "../public/assets/3.png";
@@ -27,6 +29,7 @@ const cards = [
     description:
       "Additional description about React and NodeJS... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur rerum veniam officia, est asperiores accusamus, eos incidunt ad dolorem ea accusantium nam, voluptate totam aliquid. Cum veritatis quod quos non.",
     icon: ReactIcon,
+    category: "Front-End Framework",
   },
   {
     id: 2,
@@ -34,6 +37,7 @@ const cards = [
     description:
       "Additional description about React and NodeJS... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur rerum veniam officia, est asperiores accusamus, eos incidunt ad dolorem ea accusantium nam, voluptate totam aliquid. Cum veritatis quod quos non.",
     icon: ReactIcon,
+    category: "API Dev",
   },
 
   {
@@ -42,6 +46,7 @@ const cards = [
     description:
       "Additional description about React and NodeJS... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur rerum veniam officia, est asperiores accusamus, eos incidunt ad dolorem ea accusantium nam, voluptate totam aliquid. Cum veritatis quod quos non.",
     icon: ReactIcon,
+    category: "Full-Stack Framework",
   },
   {
     id: 4,
@@ -49,11 +54,23 @@ const cards = [
     description:
       "Additional description about React and NodeJS... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur rerum veniam officia, est asperiores accusamus, eos incidunt ad dolorem ea accusantium nam, voluptate totam aliquid. Cum veritatis quod quos non.",
     icon: ReactIcon,
+    category: "Database",
   },
   // Add more cards as needed
 ];
 export default function Home() {
   const [hovered, setHovered] = useState(Array(cards.length).fill(false));
+  const [isProjectHovered, setIsProjectHovered] = useState(false);
+
+  const projectCardMouseEnter = () => {
+    console.log("enter");
+    setIsProjectHovered(true);
+  };
+
+  const projectCardMouseLeave = () => {
+    console.log("leave");
+    setIsProjectHovered(false);
+  };
 
   const handleMouseEnter = (index: number) => {
     setHovered((prev) => {
@@ -214,8 +231,9 @@ export default function Home() {
             <Image
               src={NotePadIcon}
               alt="email_icon"
-              width={50}
-              height={50}
+              width={70}
+              height={70}
+              className=""
             ></Image>
             Me
           </h2>
@@ -283,8 +301,8 @@ export default function Home() {
             <Image
               src={ConnectIcon}
               alt="email_icon"
-              width={50}
-              height={50}
+              width={70}
+              height={70}
             ></Image>
             Expertise
           </h2>
@@ -294,7 +312,7 @@ export default function Home() {
           {cards.map((card, index) => (
             <div
               key={card.id}
-              className={`card border-white border rounded-lg flex-1 relative ${styles.card_hover}  duration-300`}
+              className={`card border-[#ACCDC0] border rounded-lg flex-1 relative ${styles.card_hover}  duration-300`}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
@@ -305,17 +323,24 @@ export default function Home() {
                     height={35}
                     width={35}
                     alt=""
-                    className="rounded-lg p-2 border-white border"
+                    className="rounded-lg p-2 border-[#ACCDC0] border"
                   />
                 </div>
                 <div className="card_header_rs">
-                  <div className="ls-info">
-                    <span>Front-End Tool</span>
+                  <div className="ls-info flex gap-2">
+                    <Image
+                      src={GreenTechIcon}
+                      height={20}
+                      width={20}
+                      alt=""
+                      className=""
+                    />{" "}
+                    <span>{card.category}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="card_body h-[12rem] flex justify-center p-4 flex-col relative">
+              <div className="card_body h-[12rem] flex justify-center p-4 flex-col relative overflow-hidden">
                 <h3>{card.title}</h3>
                 <motion.p
                   initial={{ opacity: 0, height: 0 }}
@@ -335,6 +360,139 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto">
+        <div className="text-white my-10">
+          <h2 className=" flex text-7xl mb-2 font-bold leading-none">
+            Projects{" "}
+            <Image
+              src={ProjectIcon}
+              alt="email_icon"
+              width={70}
+              height={70}
+            ></Image>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 expertise-section text-[#3F5569] gap-4">
+          <div className="project_card p-4">
+            <motion.div
+              className="project_wrapper p-4 bg-white"
+              initial={{ opacity: 0, backgroundColor: "#ACCDC0" }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }} // Overall animation duration
+              whileHover={{
+                backgroundImage: `url(${Pic1.src})`,
+                backgroundSize: "130%", // Increase this value for more zoom
+                filter: "brightness(80%)", // Dark filter effect
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                transition: {
+                  backgroundImage: { duration: 1, ease: "easeOut" },
+                  backgroundSize: { duration: 1, ease: "easeOut" }, // Duration and easing for backgroundSize animation
+                },
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 1 }}
+                whileHover={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="project_card_header">
+                  <div>1</div>
+                </div>
+                <div className="project_card_body h-[30rem] flex justify-center items-center">
+                  <motion.h3
+                    className="text-4xl"
+                    initial={{ opacity: 1 }}
+                    whileHover={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    Loan Calculator
+                  </motion.h3>
+                </div>
+                <div className="project_card_footer">
+                  <p>Full Stack Development</p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-80 text-white"
+              >
+                <div className="project_card_header">
+                  <div>Project Name</div>
+                </div>
+                <div className="project_card_body h-[30rem] flex justify-center items-center">
+                  <h3 className="text-4xl">Project Description</h3>
+                </div>
+                <div className="project_card_footer">
+                  <p>ReactJS, NextJS, and Express</p>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+          <div className="project_card p-4">
+            <motion.div
+              className="project_wrapper p-4 bg-white"
+              initial={{ opacity: 0, backgroundColor: "#ACCDC0" }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }} // Overall animation duration
+              whileHover={{
+                backgroundImage: `url(${Pic1.src})`,
+                backgroundSize: "cover", // Increase this value for more zoom
+                filter: "brightness(80%)", // Dark filter effect
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                transition: {
+                  backgroundImage: { duration: 1, ease: "easeOut" },
+                  backgroundSize: { duration: 1, ease: "easeOut" }, // Duration and easing for backgroundSize animation
+                },
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 1 }}
+                whileHover={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="project_card_header">
+                  <div>1</div>
+                </div>
+                <div className="project_card_body h-[30rem] flex justify-center items-center">
+                  <motion.h3
+                    className="text-4xl"
+                    initial={{ opacity: 1 }}
+                    whileHover={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    Loan Calculator
+                  </motion.h3>
+                </div>
+                <div className="project_card_footer">
+                  <p>Full Stack Development</p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-80 text-white"
+              >
+                <div className="project_card_header">
+                  <div>Project Name</div>
+                </div>
+                <div className="project_card_body h-[30rem] flex justify-center items-center">
+                  <h3 className="text-4xl">Project Description</h3>
+                </div>
+                <div className="project_card_footer">
+                  <p>ReactJS, NextJS, and Express</p>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </>
