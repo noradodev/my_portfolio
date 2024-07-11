@@ -13,11 +13,19 @@ import ReactIcon from "../public/icons/Share.svg";
 import ConnectIcon from "../public/icons/Connect.svg";
 import NotePadIcon from "../public/icons/Notepad.svg";
 import ProjectIcon from "../public/icons/Folder.svg";
+import MonitorIcon from "../public/icons/Monitor.svg";
+import PencilCupIcon from "../public/icons/Pencil Cup.svg";
+import UnitIcon from "../public/icons/Unit.svg";
+
 import Pic1 from "../public/assets/1.png";
 import Pic2 from "../public/assets/2.png";
 import Pic3 from "../public/assets/3.png";
 import Pic4 from "../public/assets/4.png";
 import Pic5 from "../public/assets/Untitled design(11).png";
+import Pic6 from "../public/assets/6.png";
+import Pic7 from "../public/assets/7.png";
+import Pic8 from "../public/assets/8.png";
+import Pic9 from "../public/assets/9.png";
 
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -60,17 +68,6 @@ const cards = [
 ];
 export default function Home() {
   const [hovered, setHovered] = useState(Array(cards.length).fill(false));
-  const [isProjectHovered, setIsProjectHovered] = useState(false);
-
-  const projectCardMouseEnter = () => {
-    console.log("enter");
-    setIsProjectHovered(true);
-  };
-
-  const projectCardMouseLeave = () => {
-    console.log("leave");
-    setIsProjectHovered(false);
-  };
 
   const handleMouseEnter = (index: number) => {
     setHovered((prev) => {
@@ -93,7 +90,7 @@ export default function Home() {
       <section>
         <div className="h-[40rem] md:h-screen w-full rounded-md relative flex flex-col items-center justify-center antialiased">
           <div className="max-w-2xl mx-auto p-4">
-            <h1 className="relative flex items-center z-10 text-lg justify-center md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-sans font-bold">
+            <h1 className="relative flex items-center z-10 text-5xl justify-center md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-sans font-bold">
               Rad
               <span className="mx-2 align-baseline">
                 <Avatar>
@@ -106,7 +103,7 @@ export default function Home() {
             <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm text-center relative z-10">
               Full Stack Developer
             </p>
-            <div className="link-btn text-white flex gap-3 mt-5 ">
+            <div className="link-btn text-white flex flex-col md:flex-row gap-3 mt-5 ">
               <Link
                 href="https://facebook.com/rado.goodboy"
                 className="flex space-x-2 bg-[#3F5569] p-3 px-9 rounded-md"
@@ -138,87 +135,139 @@ export default function Home() {
       </section>
 
       <section className=" text-white">
-        <h2 className="text-center text-7xl mb-2 font-bold leading-8">
+        <h2 className="text-center text-4xl md:text-7xl  font-bold leading-8">
           Best Gallary
         </h2>
-        <p className="text-center text-lg font-extralight leading-8 ">
-          We are trusted by the world’s most innovative teams
-        </p>
-
-        <div className="logos group relative overflow-hidden whitespace-nowrap py-3 [mask-image:_linear-gradient(to_right,_transparent_0,_white_128px,white_calc(100%-128px),_transparent_100%)]">
+        <div className="logos group relative my-10 overflow-hidden whitespace-nowrap py-3 [mask-image:_linear-gradient(to_right,_transparent_0,_white_128px,white_calc(100%-128px),_transparent_100%)] opacity-50">
           <div className="animate-slide-left-infinite group-hover:animation-pause inline-block w-max">
             <Image
-              width={400}
-              height={400}
-              className="mx-4 inline max-w-full object-cover h-auto"
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48 rounded-lg"
               src={Pic1}
               alt="Transistor"
             />
             <Image
-              width={400}
-              height={400}
-              className="mx-4 inline max-w-full  object-cover h-auto"
+              width={200}
+              height={200}
+              className="mx-4 inline w-80  object-cover h-48 rounded-lg"
               src={Pic2}
               alt="Reform"
             />
             <Image
-              width={400}
-              height={400}
-              className="mx-4 inline max-w-full object-cover h-auto"
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48 rounded-lg"
               src={Pic3}
               alt="Tuple"
             />
             <Image
-              width={400}
+              width={200}
               height={200}
-              className="mx-4 inline max-w-full object-cover h-auto"
+              className="mx-4 inline w-80 object-cover h-48 rounded-lg"
               src={Pic4}
               alt="SavvyCal"
             />
             <Image
-              width={400}
+              width={200}
               height={200}
-              className="mx-4 inline max-w-full object-cover h-auto"
+              className="mx-4 inline w-80 object-cover h-48 rounded-lg"
               src={Pic5}
               alt="SavvyCal"
+            />
+            <Image
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48 rounded-lg"
+              src={Pic6}
+              alt=""
+            />
+            <Image
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48 rounded-lg"
+              src={Pic7}
+              alt=""
+            />
+            <Image
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48 rounded-lg"
+              src={Pic8}
+              alt=""
+            />
+            <Image
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48 rounded-lg"
+              src={Pic9}
+              alt=""
             />
           </div>
 
           <div className="animate-slide-left-infinite group-hover:animation-pause inline-block w-max">
             <Image
-              width={400}
-              height={400}
-              className="mx-4 inline max-w-full object-cover h-auto"
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48 rounded-lg"
               src={Pic1}
               alt="Transistor"
             />
             <Image
-              width={400}
-              height={400}
-              className="mx-4 inline max-w-full  object-cover h-auto"
+              width={200}
+              height={200}
+              className="mx-4 inline w-80  object-cover h-48  rounded-lg"
               src={Pic2}
               alt="Reform"
             />
             <Image
-              width={400}
-              height={400}
-              className="mx-4 inline max-w-full object-cover h-auto"
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48  rounded-lg"
               src={Pic3}
               alt="Tuple"
             />
             <Image
-              width={400}
+              width={200}
               height={200}
-              className="mx-4 inline max-w-full object-cover h-auto"
+              className="mx-4 inline w-80 object-cover h-48  rounded-lg"
               src={Pic4}
               alt="SavvyCal"
             />
             <Image
-              width={400}
+              width={200}
               height={200}
-              className="mx-4 inline max-w-full object-cover h-auto"
+              className="mx-4 inline w-80 object-cover h-48  rounded-lg"
               src={Pic5}
-              alt="SavvyCal"
+              alt=""
+            />
+            <Image
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48  rounded-lg"
+              src={Pic6}
+              alt=""
+            />
+            <Image
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48  rounded-lg"
+              src={Pic7}
+              alt=""
+            />
+            <Image
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48  rounded-lg"
+              src={Pic8}
+              alt=""
+            />
+            <Image
+              width={200}
+              height={200}
+              className="mx-4 inline w-80 object-cover h-48  rounded-lg"
+              src={Pic9}
+              alt=""
             />
           </div>
         </div>
@@ -226,38 +275,69 @@ export default function Home() {
 
       <section className="container mx-auto">
         <div className="text-white my-10">
-          <h2 className="flex text-7xl mb-2 font-bold leading-none">
-            About{" "}
-            <Image
-              src={NotePadIcon}
-              alt="email_icon"
-              width={70}
-              height={70}
-              className=""
-            ></Image>
-            Me
-          </h2>
-          <p className="text-lg font-extralight leading-8 ">
-            Check out about my resume.
-          </p>
+          <div className="text-4xl md:text-7xl  mb-2 font-bold leading-none rounded-lg">
+            <h2 className="flex  ">
+              About{" "}
+              <Image
+                src={NotePadIcon}
+                alt="email_icon"
+                width={70}
+                height={70}
+                 className="w-10 md:w-20"
+              ></Image>
+            </h2>
+            <h2>Me</h2>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 resume-section text-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 resume-section text-white">
           <div className="info-section lf flex-1">
-            <h3 className="text-3xl">Hiii, I am Rado</h3>
-            <p className="text-lg ">
+            <p className="text-xl md:text-3xl ">
               {" "}
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-              nam, at numquam magni atque sequi, eos amet debitis voluptas
-              perspiciatis nesciunt qui harum repudiandae odit cum ipsum optio
-              quis delectus! Lorem ipsum dolor sit amet consectetur, adipisicing
-              elit. Sint, aut tenetur laboriosam aperiam nesciunt totam
-              similique, illum assumenda architecto sapiente cumque voluptatem
-              voluptas cum eius molestiae quidem. Suscipit, aut ducimus? Lorem,
-              ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              voluptatibus necessitatibus voluptates corporis beatae. Totam
-              obcaecati iste beatae quaerat necessitatibus quam nostrum ratione.
-              Minima, soluta exercitationem? Tenetur at minus nobis.
+              My name is{" "}
+              <span className="text-4xl font-bold bg-yellow-500/80 px-2 rounded-lg">
+                Rado
+              </span>
+              . I am a student at Limkokwing University of Creative Technology
+              specialized in Software Engineering with Multimedia. Through my
+              journey, I am not only{" "}
+              <span className="bg-green-600 px-2 rounded">
+                {" "}
+                <Image
+                  src={MonitorIcon}
+                  alt="email_icon"
+                  width={30}
+                  height={30}
+                  className="inline"
+                ></Image>{" "}
+                coding
+              </span>{" "}
+              but I love to explore thing such{" "}
+              <span className="bg-blue-600 px-2 rounded">
+                {" "}
+                <Image
+                  src={PencilCupIcon}
+                  alt="email_icon"
+                  width={30}
+                  height={30}
+                  className="inline"
+                ></Image>{" "}
+                Hackathon
+              </span>
+              ,{" "}
+              <span className=" bg-purple-600 px-2 rounded">
+                {" "}
+                <Image
+                  src={UnitIcon}
+                  alt="email_icon"
+                  width={30}
+                  height={30}
+                  className="inline"
+                ></Image>{" "}
+                StartUp
+              </span>{" "}
+              , Workshop and more. Scroll down to see my expertise.
+              <br></br> If there any work please contact me by:
             </p>
             <div className="contact-section ">
               <div className="top-section-ct flex flex-col md:flex-row">
@@ -295,17 +375,18 @@ export default function Home() {
       </section>
 
       <section className="container mx-auto">
-        <div className="text-white my-10">
-          <h2 className=" flex text-7xl mb-2 font-bold leading-none">
+        <div className="text-white my-10 text-4xl md:text-7xl  font-bold leading-none">
+          <h2 className=" flex ">
             My{" "}
             <Image
               src={ConnectIcon}
               alt="email_icon"
               width={70}
               height={70}
+                className="w-10 md:w-20"
             ></Image>
-            Expertise
           </h2>
+          <h2> Expertise</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 expertise-section text-white gap-4">
@@ -365,13 +446,14 @@ export default function Home() {
 
       <section className="container mx-auto">
         <div className="text-white my-10">
-          <h2 className=" flex text-7xl mb-2 font-bold leading-none">
+          <h2 className=" flex text-4xl md:text-7xl  mb-2 font-bold leading-none">
             Projects{" "}
             <Image
               src={ProjectIcon}
               alt="email_icon"
               width={70}
               height={70}
+               className="w-10 md:w-20"
             ></Image>
           </h2>
         </div>
