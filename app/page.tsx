@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { StickyScroll } from "../components/ui/sticky-scroll-reveal";
+import { Button } from "@/components/ui/button"
 
 import styles from "../components/modules/card.module.css";
 import ToolboxImage from "../public/icons/Toolbox.png";
@@ -354,9 +355,9 @@ export default function Home() {
       </section>
 
       <section className="container mx-auto">
-        <div className="text-white my-10">
+        <div className="text-white my-5 md:my-10">
           <div className="text-4xl md:text-7xl  mb-2 font-bold leading-none rounded-lg">
-            <h2 className="flex  ">
+            <h2 className="flex ">
               About{" "}
               <Image
                 src={NotePadIcon}
@@ -366,7 +367,7 @@ export default function Home() {
                 className="w-10 md:w-20"
               ></Image>
             </h2>
-            <h2>Me</h2>
+          
           </div>
         </div>
 
