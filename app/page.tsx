@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { StickyScroll } from "../components/ui/sticky-scroll-reveal";
+
 import styles from "../components/modules/card.module.css";
 import ToolboxImage from "../public/icons/Toolbox.png";
 import WebsiteImage from "../public/icons/Web.png";
@@ -26,6 +28,10 @@ import Pic6 from "../public/assets/6.png";
 import Pic7 from "../public/assets/7.png";
 import Pic8 from "../public/assets/8.png";
 import Pic9 from "../public/assets/9.png";
+import FigmaCertificate from '../public/assets/UC-6f91bf84-d035-4932-b476-25098a306a5b.jpg'
+import ReactCerificate from '../public/assets/react_certificate.png'
+import phpCerificate from '../public/assets/phpcerificate.jpg'
+import BasicWeb from '../public/assets/basic_webcertificate.jpg'
 
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -65,6 +71,76 @@ const cards = [
     category: "Database",
   },
   // Add more cards as needed
+];
+
+
+
+const content = [
+  {
+    
+    title: "Figma Certificate",
+    description:
+      "This Figma course has been an amazing adventure! I'm incredibly proud to have learned the skills to design a website from scratch. A huge thanks to Anton Voroniuk, Željko Milivojević, and the fantastic support team for their invaluable knowledge and guidance. Completing this course is a major stepping stone in my design journey, and it's only stoked my passion even more!",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center text-white">
+        <Image
+          src={FigmaCertificate}
+          width={3000}
+          height={3000}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
+      </div>
+    ),
+  },
+  {
+    title: "React Certificate",
+    description:
+      "Conquered React Fundamentals! Aced Meta's React course on Coursera, solidifying my grasp of building user interfaces for web applications. The instructors' expertise and practical exercises were instrumental. This achievement marks a major step in my web development journey, and I'm pumped to leverage these skills to create interactive web experiences! ",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center text-white">
+      <Image
+        src={ReactCerificate}
+        width={3000}
+        height={3000}
+        className="h-full w-full object-cover"
+        alt="linear board demo"
+      />
+    </div>
+    ),
+  },
+  {
+    title: "PHP & Laravel Certificate",
+    description:
+      "Leveled up my skills! Completed an on-site PHP & Laravel course with Instinct Institute. Feeling empowered to build interactive web experiences oth backend & frontend!",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center text-white">
+      <Image
+        src={phpCerificate}
+        width={3000}
+        height={3000}
+        className="h-full w-full  "
+        alt="linear board demo"
+      />
+    </div>
+    ),
+  },
+  {
+    title: "Basic Web Certifcation",
+    description:
+      " I have completed the comprehensive Basic Web Certification program at Instinct Institute. This intensive course equipped me with a strong understanding of essential web development principles, paving the way for me to delve deeper into advanced topics like React.",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center text-white">
+      <Image
+        src={BasicWeb}
+        width={3000}
+        height={3000}
+        className="h-full w-full  "
+        alt="linear board demo"
+      />
+    </div>
+    ),
+  },
 ];
 export default function Home() {
   const [isTouched, setIsTouched] = useState(false);
@@ -449,9 +525,9 @@ export default function Home() {
       </section>
 
       <section className="container mx-auto">
-        <div className="text-white my-10">
-          <h2 className=" flex text-4xl md:text-7xl  mb-2 font-bold leading-none">
-            Projects{" "}
+        <div className="text-white my-10 text-4xl md:text-7xl  mb-2 font-bold leading-none">
+          <h2 className=" flex ">
+            Achivement
             <Image
               src={ProjectIcon}
               alt="email_icon"
@@ -460,75 +536,14 @@ export default function Home() {
               className="w-10 md:w-20"
             ></Image>
           </h2>
+          <h2> & Experience{" "}</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 expertise-section text-[#3F5569] gap-4">
-          <div className="project_card p-4">
-            <motion.div
-              className={`project_wrapper p-4 bg-white ${
-                isTouched ? "touched" : ""
-              }`}
-              initial={{ opacity: 0, backgroundColor: "#ACCDC0" }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }} // Overall animation duration
-              whileHover={{
-                backgroundImage: `url(${Pic1.src})`,
-                backgroundSize: "130%", // Increase this value for more zoom
-                filter: "brightness(80%)", // Dark filter effect
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                transition: {
-                  backgroundImage: { duration: 1, ease: "easeOut" },
-                  backgroundSize: { duration: 1, ease: "easeOut" }, // Duration and easing for backgroundSize animation
-                },
-              }}
-              onMouseEnter={handleTouchStart}
-              onMouseLeave={handleTouchEnd}
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
-              <motion.div
-                initial={{ opacity: 1 }}
-                whileHover={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="project_card_header">
-                  <div>1</div>
-                </div>
-                <div className="project_card_body h-[30rem] flex justify-center items-center">
-                  <motion.h3
-                    className="text-4xl"
-                    initial={{ opacity: 1 }}
-                    whileHover={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    Loan Calculator
-                  </motion.h3>
-                </div>
-                <div className="project_card_footer">
-                  <p>Full Stack Development</p>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-80 text-white"
-              >
-                <div className="project_card_header">
-                  <div>Project Name</div>
-                </div>
-                <div className="project_card_body h-[30rem] flex justify-center items-center">
-                  <h3 className="text-4xl">Project Description</h3>
-                </div>
-                <div className="project_card_footer">
-                  <p>ReactJS, NextJS, and Express</p>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
+        <div className="">
+          <StickyScroll content={content} />
         </div>
       </section>
+      <section className="h-screen"></section>
     </>
   );
 }
