@@ -67,6 +67,10 @@ const cards = [
   // Add more cards as needed
 ];
 export default function Home() {
+  const [isTouched, setIsTouched] = useState(false);
+
+  const handleTouchStart = () => setIsTouched(true);
+  const handleTouchEnd = () => setIsTouched(false);
   const [hovered, setHovered] = useState(Array(cards.length).fill(false));
 
   const handleMouseEnter = (index: number) => {
@@ -283,7 +287,7 @@ export default function Home() {
                 alt="email_icon"
                 width={70}
                 height={70}
-                 className="w-10 md:w-20"
+                className="w-10 md:w-20"
               ></Image>
             </h2>
             <h2>Me</h2>
@@ -383,7 +387,7 @@ export default function Home() {
               alt="email_icon"
               width={70}
               height={70}
-                className="w-10 md:w-20"
+              className="w-10 md:w-20"
             ></Image>
           </h2>
           <h2> Expertise</h2>
@@ -453,7 +457,7 @@ export default function Home() {
               alt="email_icon"
               width={70}
               height={70}
-               className="w-10 md:w-20"
+              className="w-10 md:w-20"
             ></Image>
           </h2>
         </div>
@@ -461,7 +465,9 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 expertise-section text-[#3F5569] gap-4">
           <div className="project_card p-4">
             <motion.div
-              className="project_wrapper p-4 bg-white"
+              className={`project_wrapper p-4 bg-white ${
+                isTouched ? "touched" : ""
+              }`}
               initial={{ opacity: 0, backgroundColor: "#ACCDC0" }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }} // Overall animation duration
@@ -476,64 +482,10 @@ export default function Home() {
                   backgroundSize: { duration: 1, ease: "easeOut" }, // Duration and easing for backgroundSize animation
                 },
               }}
-            >
-              <motion.div
-                initial={{ opacity: 1 }}
-                whileHover={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="project_card_header">
-                  <div>1</div>
-                </div>
-                <div className="project_card_body h-[30rem] flex justify-center items-center">
-                  <motion.h3
-                    className="text-4xl"
-                    initial={{ opacity: 1 }}
-                    whileHover={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    Loan Calculator
-                  </motion.h3>
-                </div>
-                <div className="project_card_footer">
-                  <p>Full Stack Development</p>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-80 text-white"
-              >
-                <div className="project_card_header">
-                  <div>Project Name</div>
-                </div>
-                <div className="project_card_body h-[30rem] flex justify-center items-center">
-                  <h3 className="text-4xl">Project Description</h3>
-                </div>
-                <div className="project_card_footer">
-                  <p>ReactJS, NextJS, and Express</p>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-          <div className="project_card p-4">
-            <motion.div
-              className="project_wrapper p-4 bg-white"
-              initial={{ opacity: 0, backgroundColor: "#ACCDC0" }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }} // Overall animation duration
-              whileHover={{
-                backgroundImage: `url(${Pic1.src})`,
-                backgroundSize: "cover", // Increase this value for more zoom
-                filter: "brightness(80%)", // Dark filter effect
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                transition: {
-                  backgroundImage: { duration: 1, ease: "easeOut" },
-                  backgroundSize: { duration: 1, ease: "easeOut" }, // Duration and easing for backgroundSize animation
-                },
-              }}
+              onMouseEnter={handleTouchStart}
+              onMouseLeave={handleTouchEnd}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
             >
               <motion.div
                 initial={{ opacity: 1 }}
